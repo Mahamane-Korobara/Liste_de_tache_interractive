@@ -1,0 +1,331 @@
+/* Réinitialisation des marges, des bordures et du modèle de boîte */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style général du corps avec une couleur de fond neutre */
+body {
+    background-color: rgb(225, 223, 223);
+    width: 100vw;
+}
+
+/* Mise en page principale avec un affichage en flex et une hauteur minimale */
+main {
+    display: flex;
+    min-height: 100vh;
+    background-color:rgb(225, 223, 223);
+}
+
+/* Contenu de la sidebar avec une disposition verticale et des marges internes */
+.contenuSidebar {
+    margin: 1.25rem 0.625rem 0.625rem 0.625rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;/* Espacement entre les éléments */
+}
+
+.contenuSidebar h1 {
+    color: rgb(84, 84, 84);
+    text-align: center;
+}
+
+.obligation{
+    color: gray;
+    font-size: 0.825rem;
+}
+
+/* Style général pour les icônes font-awesome */
+.fas {
+    text-align: center;
+    padding-top: 3px;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+
+/* Masquer la sidebar par défaut */
+.sidebar {
+    display: none;
+    flex-direction: column;
+    min-height: 100svh;
+    width: 25%;
+    box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.5); 
+    z-index: 999;
+}
+
+/* Afficher la sidebar lorsqu'elle a la classe active */
+.sidebar.active {
+    display: flex;
+}
+
+
+/* Style du formulaire pour créer un nouveau titre */
+#formulaireTitre {
+    display: flex;
+    justify-content: center;
+    
+}
+
+/* Champ d'entrée pour les nouveaux titres */
+#nouveauTitre {
+    width: 100%;
+    height: 1.875rem;
+    border: none;
+}
+
+/*Style du div qui garde le titre le comptage te le bouton*/
+.titre {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 0,625rem;
+    padding: 0.3125rem 0;
+    align-items: center;
+}
+
+
+/*Style du bouton dans la div titre*/
+.titre button {
+    padding: 0.3125rem;
+    border-radius: 3px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(255, 160, 122);
+}
+
+
+/* Style pour la div selectionnée sélectionnées */
+.titre-selectionne {
+    background-color: #cfe3ff;
+    font-weight: bold;
+    border-left: 4px solid red;
+    transition: all 0.4s ease-in-out;
+}
+
+/* Conteneur principal du contenu */
+.contenu {
+  min-height: 100vh;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.contenu span{
+    color: red;
+}
+
+/* Conteneur pour la liste des tâches */
+.listeTache {
+    width: 400px;
+    padding: 0.625rem;
+}
+
+/* Style des champs de texte */
+input[type="text"] {
+    width: 100%;
+    height: 2.5rem;
+    padding-left: 10px;
+}
+
+/* Style de la section des catégories */
+#categorie {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.25rem;
+}
+
+/* Espacement des choix de catégorie */
+#categorie p {
+    margin-bottom: 0.3125rem;
+}
+
+/* Style du conteneur div qui contienne les deux categories*/
+.conteneurChoix {
+    display: flex;
+    justify-content: space-between;
+}
+
+.conteneurImportant, .conteneurUrgent label, input[type = "radio"] {
+    cursor: pointer;
+}
+
+/* Style du conteneur qui contient les deux l'input de type radio ainsi que son label*/
+.conteneurImportant, .conteneurUrgent {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 48%;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    border-radius: 5px;
+    margin-bottom: 1.25rem;
+    cursor: pointer;
+}
+
+
+/* Style de couleur pour l'input de radio categorie urgent */
+#urgent {
+    accent-color: red;
+}
+
+/* Style de couleur pour l'input de radio categorie urgent */
+#important {
+    accent-color: orange;
+}
+
+/* Style spécifique aux boutons qui ajoute des taches des tâches */
+.champDeSaisi button {
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 5px;
+    background-color: blue;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom:  1.25rem;
+    color: white;
+}
+
+
+.champDeSaisi button:hover {
+    background-color: rgba(79, 79, 241, 0.788);
+}
+
+
+.tache {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.625rem;
+    border-radius: 5px;
+}
+
+/* Style pour les paragraphes marquant les tâches urgentes */
+.paragraphe_urgent {
+    border: 2px solid red;
+    margin: 5px 0;
+    border-radius: 5px;
+    width: 45%;
+    padding: 0.3125rem 0 0.3125rem 0.3125rem;
+    word-break: break-word;
+    height: auto;
+    animation: ajout 0.5s linear;
+    cursor: pointer;
+}
+
+/* Style pour les paragraphes marquant les tâches important */
+.paragraphe_important {
+    border: 2px solid orange;
+    margin: 0.3125rem 0;
+    border-radius: 5px;
+    width: 45%;
+    padding: 0.3125rem 0 0.3125rem 0.3125rem;
+    word-break: break-word;
+    height: auto;
+    animation: ajout 0.5s linear;
+    cursor: pointer;
+}
+
+/* Style du div qui contienne la tache ajouter avec ces boutons une tache */
+.tache .div_btn {
+    display: flex;
+    justify-content: space-around;
+    width: 52%;
+}
+
+
+/* Style du background du bouton pour modifier une tache */
+.btn1 {
+    background-color: rgb(60, 179, 113);
+}
+
+/* Style du background du bouton pour supprimer  une tache */
+.btn2 {
+    background-color: rgb(255, 160, 122);
+}
+
+/* Style du bouton pour modifier et supprimer une tache */
+.btn1, .btn2 {
+    padding: 0.3125rem 0.625rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: white;
+}
+
+
+/* Animation d'apparition des nouvelles tâches */
+@keyframes ajout {
+    from {
+        transform: translateY(30px)
+    }
+    
+}
+
+
+/* Masquer le bouton "close" et "open" sur les grands écrans */
+@media (min-width: 850px) {
+    #openMenu, #closeMenu {
+        display: none; /* Cacher les icônes sur grands écrans */
+    }
+
+    .sidebar {
+        display: flex; /* Afficher la sidebar sur les grands écrans */
+    }
+}
+
+/* Afficher les icônes de menu sur les petits écrans */
+@media (max-width: 420px){
+    #openMenu  {
+        padding-top: 7px;
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+
+@media (max-width: 448px) {
+    #openMenu  {
+        padding-top: 7px;
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+}
+
+@media (max-width: 849px) {
+    #openMenu {
+        display: block; /* Afficher le bouton "open" sur les petits écrans */
+    }
+
+    #closeMenu {
+        display: none; /* Cacher le bouton "close" */
+    }
+
+    .sidebar {
+        display: none; /* Cacher la sidebar par défaut */
+        background-color: rgb(225, 223, 223);
+        width: 60%;
+        position: fixed;
+        z-index: 999;
+    }
+
+    .sidebar.active #closeMenu {
+        display: block; /* Afficher le bouton "close" quand la sidebar est active */
+    }
+}

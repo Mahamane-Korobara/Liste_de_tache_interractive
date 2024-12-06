@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Tâches avec Sidebar</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> 
+    <!-- Chargement de la bibliothèque Font Awesome pour les icônes -->
+</head>
+<body>
+    <!-- Conteneur principal de la page -->
+    <main>
+        <!-- Bouton pour ouvrir la sidebar (icône "menu") -->
+        <i class="fas fa-bars" id="openMenu"></i>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Bouton pour fermer la sidebar (icône "croix") -->
+            <i class="fas fa-times" id="closeMenu"></i>
+            <!-- Contenu de la sidebar -->
+            <div class="contenuSidebar">
+                <h1>To do</h1>
+                <!-- Formulaire pour ajouter un nouveau titre -->
+                <form id="formulaireTitre">
+                    <input type="text" id="nouveauTitre" placeholder="Entrez le nom de titre de la tâche" required> 
+                </form>
+                <!-- Affichage du nombre total des tâches -->
+                <div class="touteLesTache">
+                    <p>Total des Tâches : <span id="totalTaches">0</span></p>
+                </div>
+                <!-- Conteneur pour afficher la liste des titres -->
+                <div id="listeTitres"></div>
+            </div>
+        </aside>
+
+        <!-- Contenu principal (hors sidebar) -->
+        <div class="contenu">
+            <!-- Formulaire pour ajouter des tâches -->
+            <form id="formulaireTache">
+                <!-- Affichage du titre sélectionné -->
+                <h2 id="selectionTitre"></h2>
+                <section class="listeTache">
+                    <h1>Liste des tâches<span>*</span></h1>
+                    <p class="obligation">Les * signifie que tant que vous remplisser pas le formulaire la tache ne sera pas ajouter</p>
+                    <div class="conteneur">
+                        <div class="champDeSaisi">
+                            <input type="text" id="zoneDeSaisi" placeholder="Ajouter une tâche..."> 
+                            <!-- Section de sélection de la catégorie -->
+                            <div id="categorie">
+                                <p>Choisissez une catégorie<span>*</span></p>
+                                <div class="conteneurChoix">
+                                    <!-- Choix "Important" -->
+                                    <div class="conteneurImportant">
+                                        <input type="radio" name="choix" id="important" value="important">
+                                        <label for="important">Important</label>
+                                    </div>
+                                    <!-- Choix "Urgent" -->
+                                    <div class="conteneurUrgent">
+                                        <input type="radio" name="choix" id="urgent" value="urgent">
+                                        <label for="urgent">Urgent</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Bouton pour ajouter la tâche -->
+                            <button id="ajout">Ajouter la tâche</button>
+                        </div>
+                        <!-- Paragraphe d'introduction -->
+                        <p class="paragrapheIntro">Les ajouts à la liste</p>
+                        <!-- Conteneur pour afficher les tâches ajoutées -->
+                        <div id="ajoutTache"></div>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
